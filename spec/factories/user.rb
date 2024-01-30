@@ -8,6 +8,10 @@ FactoryBot.define do
     last_name { Faker::Name.last_name }
     date_of_birth { Faker::Date.birthday(min_age: 18, max_age: 65) }
 
-    # after(:create) { |user| user.confirm }
+    trait :just_registered do
+      first_name { nil }
+      last_name { nil }
+      date_of_birth { nil }
+    end
   end
 end

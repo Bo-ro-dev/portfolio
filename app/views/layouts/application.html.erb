@@ -13,9 +13,18 @@
 
   <body>
     <%= render 'partials/navbar' %>
-    <main class="container mx-auto mt-28 px-5 flex items-center justify-center">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% if notice.present?  %>
+        <div class="mx-auto max-w-md text-center">
+          <p class="notice p-4 text-green-500"><%= notice %></p>
+        </div>
+      <% end %>
+      <% if alert.present? %>
+        <div class="mx-auto max-w-md text-center">
+          <p class="alert p-4 text-red-500"><%= alert %></p>
+        </div>
+      <% end %>
+    </div>
+    <main class="container mx-auto mt-10 px-5 flex items-center justify-center">
       <%= yield %>
     </main>
   </body>
